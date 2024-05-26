@@ -16,14 +16,19 @@ module.exports = {
           loader: "babel-loader",
         },
       },
+      {
+        test: /\.less$/,
+        use: ["style-loader", "css-loader", "less-loader"],
+      },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./index.html",
+      template: "./public/index.html",
     }),
   ],
   devServer: {
+    hot: true,
     static: { directory: path.join(__dirname, "dist") },
     compress: true,
     port: 2228,

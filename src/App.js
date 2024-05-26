@@ -1,8 +1,9 @@
 import React from 'react';
-
+import '../public/main.less';
+import Cart from './components/Cart/Cart';
 const App = () => (
-  <div>
-    <h1>Hello, React!</h1>
+  <div className='wrapper'>
+    <Cart/>
   </div>
 );
 
