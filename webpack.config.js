@@ -17,8 +17,26 @@ module.exports = {
         },
       },
       {
-        test: /\.less$/,
+        test: /\.(less|css)$/,
         use: ["style-loader", "css-loader", "less-loader"],
+      },
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: "@svgr/webpack",
+            options: {
+              svgo: false,
+            },
+          },
+          {
+            loader: "file-loader",
+            options: {
+              name: "[name].[ext]",
+              outputPath: "images/",
+            },
+          },
+        ],
       },
     ],
   },
