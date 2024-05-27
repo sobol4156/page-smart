@@ -2,6 +2,25 @@ import React from "react";
 import "./Cart.less";
 import arrow from "../../../public/img/svg/arrow.svg";
 import photo1 from "../../../public/img/svg/photo1.svg";
+import smartphone from "../../../public/img/svg/iconsInfo/smartphone.svg";
+import phone from "../../../public/img/svg/iconsInfo/phone.svg";
+import email from "../../../public/img/svg/iconsInfo/email.svg";
+import websait from "../../../public/img/svg/iconsInfo/websait.svg";
+import address from "../../../public/img/svg/iconsInfo/address.svg";
+import bd from "../../../public/img/svg/iconsInfo/bd.svg";
+import rank from "../../../public/img/svg/iconsInfo/rank.svg";
+
+import telegram from '../../../public/img/svg/social/telegram.svg'
+import whatsup from '../../../public/img/svg/social/whatsup.svg'
+import viber from '../../../public/img/svg/social/viber.svg'
+import instagram from '../../../public/img/svg/social/instagram.svg'
+import vk from '../../../public/img/svg/social/vk.svg'
+import facebook from '../../../public/img/svg/social/facebook.svg'
+import youtube from '../../../public/img/svg/social/youtube.svg'
+import ok from '../../../public/img/svg/social/ok.svg'
+import dzen from '../../../public/img/svg/social/dzen.svg'
+import tiktok from '../../../public/img/svg/social/tiktok.svg'
+import linkedin from '../../../public/img/svg/social/linkedin.svg'
 
 const Cart = () => {
   return (
@@ -23,46 +42,74 @@ const Cart = () => {
       <main className="main">
         <div className="main__content">
           <div className="main__images">
-            <div className="main__images-img"><img src={photo1} alt="" /></div>
-            <div className="main__images-btn"><button>ДОБАВИТЬ В КОНТАКТЫ</button></div>
+            <div className="main__images-img">
+              <img src={photo1} alt="" />
+            </div>
+            <div className="main__images-btn">
+              <button>ДОБАВИТЬ В КОНТАКТЫ</button>
+            </div>
           </div>
           <div className="main__text">
             <div className="main__logo">
-              <img src="" alt="" /> <span></span>
+              <span>Logo</span>
             </div>
-            <div className="main__border">
-              <img src="" alt="" /> <span></span>
+            <div className="main__border"></div>
+            <div className="main__info">
+              <div className="main__header">
+                <div className="main__FIO">
+                  <span>
+                    Иванов <br /> Иван Петрович
+                  </span>
+                </div>
+                <div className="main__post">
+                  <span>Директор</span>
+                </div>
+              </div>
+
+              <div className="main__info-more">
+                <div className="main__phone inf">
+                  <img src={smartphone} alt="" />{" "}
+                  <span>+7 (000) 000-00-00</span>
+                </div>
+                <div className="main__phone inf">
+                  <img src={phone} alt="" /> <span>+7 (000) 000-00-00</span>
+                </div>
+                <div className="main__phone inf">
+                  <img src={phone} alt="" /> <span>+7 (000) 000-00-00</span>
+                </div>
+                <div className="main__email inf">
+                  <img src={email} alt="" /> <span>Почта</span>
+                </div>
+                <div className="main__website inf">
+                  <img src={websait} alt="" /> <span>Личный сайт</span>
+                </div>
+                <div className="main__address inf">
+                  <img src={address} alt="" /> <span>Адрес</span>
+                </div>
+                <div className="main__BD inf">
+                  <img src={bd} alt="" /> <span>Дата рождения</span>
+                </div>
+                <div className="main__rank inf">
+                  <img src={rank} alt="" /> <span>Звание, учёная степень</span>
+                </div>
+              </div>
             </div>
-            <div className="main__FIO">
-              <img src="" alt="" /> <span></span>
-            </div>
-            <div className="main__post">
-              <img src="" alt="" /> <span></span>
-            </div>
-            <div className="main__phone">
-              <img src="" alt="" /> <span></span>
-            </div>
-            <div className="main__phone">
-              <img src="" alt="" /> <span></span>
-            </div>
-            <div className="main__phone">
-              <img src="" alt="" /> <span></span>
-            </div>
-            <div className="main__email">
-              <img src="" alt="" /> <span></span>
-            </div>
-            <div className="main__website">
-              <img src="" alt="" /> <span></span>
-            </div>
-            <div className="main__address">
-              <img src="" alt="" /> <span></span>
-            </div>
-            <div className="main__BD">
-              <img src="" alt="" /> <span></span>
-            </div>
-            <div className="main__rank">
-              <img src="" alt="" /> <span></span>
-            </div>
+          </div>
+        </div>
+        <div className="main__border-bottom"></div>
+        <div className="main__social">
+          <div className="main__social-icons">
+            <div className="social-item"><img src={telegram} alt="" /></div>
+            <div className="social-item"><img src={whatsup} alt="" /></div>
+            <div className="social-item"><img src={viber} alt="" /></div>
+            <div className="social-item"><img src={instagram} alt="" /></div>
+            <div className="social-item"><img src={vk} alt="" /></div>
+            <div className="social-item"><img src={facebook} alt="" /></div>
+            <div className="social-item"><img src={youtube} alt="" /></div>
+            <div className="social-item"><img src={ok} alt="" /></div>
+            <div className="social-item"><img src={dzen} alt="" /></div>
+            <div className="social-item"><img src={tiktok} alt="" /></div>
+            <div className="social-item"><img src={linkedin} alt="" /></div>
           </div>
         </div>
       </main>
