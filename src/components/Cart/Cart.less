@@ -17,21 +17,29 @@
   display: flex;
   gap: 5px;
 
-  div{
+  div {
     display: flex;
     align-items: center;
   }
 }
 
 .main {
+  display: none;
   background: #f4f4f4;
   max-width: 100%;
   height: 696px;
   border-radius: 8px;
-  .main__border-bottom{
-    border-bottom: 1px solid black;
-    width: 100%;
-  }
+  color: #060606;
+  transition: all 0.3s;
+}
+
+.main.active {
+  display: block;
+}
+
+.main__border-bottom {
+  border-bottom: 1px solid black;
+  width: 100%;
 }
 
 .header__item-arrowRight {
@@ -46,6 +54,7 @@
 
 .item__selected {
   opacity: 50%;
+  cursor: default;
 }
 .main__content {
   display: flex;
@@ -86,18 +95,16 @@
   flex-direction: column;
   justify-content: space-between;
   flex-grow: 1;
-  .main__logo{
+  .main__logo {
     font-family: Inter;
     font-size: 48px;
     font-weight: 700;
     line-height: 58.09px;
     text-align: center;
   }
-  .main__border{
+  .main__border {
     border-bottom: 1px solid black;
-
   }
-
 }
 
 .main__info {
@@ -106,7 +113,7 @@
   flex-direction: column;
   gap: 20px;
 
-  .main__header{
+  .main__header {
     display: flex;
     flex-direction: column;
     gap: 5px;
@@ -143,18 +150,25 @@
   align-items: center;
 }
 
-.main__social{
-  padding: 25px 30px 0 30px;
+.main__social {
+  padding: 25px 30px 30px 30px;
 
-  .main__social-icons{
+  .main__social-icons {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
-    .social-item{
+
+    .social-item {
       display: flex;
       align-items: center;
       cursor: pointer;
     }
   }
+}
+
+// company Page
+
+.company__header {
+  border-bottom: 1px solid black;
+  margin-top: 70px;
 }
