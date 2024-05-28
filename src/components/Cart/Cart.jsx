@@ -239,7 +239,7 @@ const Cart = () => {
         )}
       </main>
       <main className={`main company ${showCompany ? "active" : ""}`}>
-        {showCompany && (
+        
           <div className="company__content">
             <div className="company__header"></div>
             <div className="company__main">
@@ -374,7 +374,7 @@ const Cart = () => {
               </div>
             </div>
           </div>
-        )}
+        
       </main>
     </div>
   );
