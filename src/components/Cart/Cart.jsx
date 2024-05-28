@@ -9,6 +9,7 @@ import websait from "../../../public/img/svg/iconsInfo/websait.svg";
 import address from "../../../public/img/svg/iconsInfo/address.svg";
 import bd from "../../../public/img/svg/iconsInfo/bd.svg";
 import rank from "../../../public/img/svg/iconsInfo/rank.svg";
+import fax from "../../../public/img/svg/iconsInfo/fax.svg";
 
 import telegram from "../../../public/img/svg/social/telegram.svg";
 import whatsup from "../../../public/img/svg/social/whatsup.svg";
@@ -163,13 +164,6 @@ const Cart = () => {
             </div>
             <div className="main__info-more">
                 <div className="main__phone inf">
-                  <img src={smartphone} alt="" />
-                  <span>+7 (000) 000-00-00</span>
-                </div>
-                <div className="main__phone inf">
-                  <img src={phone} alt="" /> <span>+7 (000) 000-00-00</span>
-                </div>
-                <div className="main__phone inf">
                   <img src={phone} alt="" /> <span>+7 (000) 000-00-00</span>
                 </div>
                 <div className="main__email inf">
@@ -182,14 +176,54 @@ const Cart = () => {
                   <img src={address} alt="" /> <span>Адрес</span>
                 </div>
                 <div className="main__BD inf">
-                  <img src={bd} alt="" /> <span>Дата рождения</span>
+                  <img src={bd} alt="" /> <span>Дата основания</span>
                 </div>
                 <div className="main__rank inf">
-                  <img src={rank} alt="" /> <span>Звание, учёная степень</span>
+                  <img src={rank} alt="" /> <span>Клиенты Клиенты Клиенты Клиенты Клиенты Клиенты Клиенты Клиенты Клиенты Клиенты Клиенты Клиенты</span>
+                </div>
+                <div className="main__fax inf">
+                  <img src={fax} alt="" /> <span>Факс</span>
                 </div>
               </div>
           </div>
-          <div className="company__footer"></div>
+          <div className="main__border-bottom"></div>
+        <div className="main__social">
+          <div className="main__social-icons">
+            <div className="social-item">
+              <img src={telegram} alt="" />
+            </div>
+            <div className="social-item">
+              <img src={whatsup} alt="" />
+            </div>
+            <div className="social-item">
+              <img src={viber} alt="" />
+            </div>
+            <div className="social-item">
+              <img src={instagram} alt="" />
+            </div>
+            <div className="social-item">
+              <img src={vk} alt="" />
+            </div>
+            <div className="social-item">
+              <img src={facebook} alt="" />
+            </div>
+            <div className="social-item">
+              <img src={youtube} alt="" />
+            </div>
+            <div className="social-item">
+              <img src={ok} alt="" />
+            </div>
+            <div className="social-item">
+              <img src={dzen} alt="" />
+            </div>
+            <div className="social-item">
+              <img src={tiktok} alt="" />
+            </div>
+            <div className="social-item">
+              <img src={linkedin} alt="" />
+            </div>
+          </div>
+        </div>
         </div>
       </main>
     </div>
