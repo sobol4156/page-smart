@@ -46,6 +46,7 @@ const Cart = () => {
 
   return (
     <div className="cart">
+      {/* Шапка с переключением страниц */}
       <header className="header">
         <div
           onClick={handleTogglEemployee}
@@ -66,6 +67,7 @@ const Cart = () => {
           </div>
         </div>
       </header>
+      {/* Первая страница */}
       <main className={`main ${!showCompany ? "active" : ""}`}>
         {!showCompany && (
           <div>
@@ -100,6 +102,7 @@ const Cart = () => {
                 <div className="main__logo">
                   <span>Logo</span>
                 </div>
+                {/* Кастомная линия */}
                 <div className="main__border"></div>
                 <div className="main__info">
                   <div className="main__header">
@@ -112,6 +115,7 @@ const Cart = () => {
                       <span>Директор</span>
                     </div>
                   </div>
+                  {/* Инфа о человеке */}
                   <div className="main__info-more">
                     <div className="main__border-mobile"></div>
                     <div className="main__phone inf">
@@ -155,10 +159,13 @@ const Cart = () => {
                   </div>
                 </div>
               </div>
+              {/* Кастомные линия */}
               <div className="main__border-mobile-down"></div>
             </div>
+             {/* Кастомные линия */}
             <div className="main__border-bottom"></div>
             <div className="main__social">
+              {/* Социальные сети с переходами по ссылке */}
               <div className="main__social-icons">
                 <a
                   href="https://telegram.org"
@@ -242,11 +249,13 @@ const Cart = () => {
           </div>
         )}
       </main>
+      {/* Вторая страница */}
       <main className={`main company ${showCompany ? "active" : ""}`}>
         
           <div className="company__content">
             <div className="company__header"></div>
             <div className="company__main">
+              {/* Заголовок компании */}
               <div className="company__logo">
                 <div className="company__logo-title">Logo</div>
                 <div className="company__logo-text">
@@ -255,8 +264,10 @@ const Cart = () => {
                     Описание деятельности компании
                   </div>
                 </div>
+                {/* Кастомная линия */}
                 <div className="company__border-mobile"></div>
               </div>
+              {/* Более подробное описание компании */}
               <div className="main__info-more company__info">
                 <div className="main__phone inf">
                   <img src={phone} alt="" />
@@ -295,7 +306,9 @@ const Cart = () => {
               </div>
               <div className="company__border-mobile-down"></div>
             </div>
+            {/* Кастомная линия */}
             <div className="main__border-bottom"></div>
+            {/* Социальные сети с переходами по ссылке */}
             <div className="main__social">
               <div className="main__social-icons">
                 <a

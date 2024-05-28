@@ -1,0 +1,526 @@
+/* Исходные стили */
+.wrapper {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .cart {
+    width: 648px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .header__item {
+    display: flex;
+    gap: 5px;
+  }
+  
+  .header__item div {
+    display: flex;
+    align-items: center;
+  }
+  
+  .main {
+    display: none;
+    background: #f4f4f4;
+    max-width: 100%;
+  
+    border-radius: 8px;
+    color: #060606;
+    transition: all 0.3s;
+  }
+  
+  .main__images-btn-mobile {
+    display: none;
+  }
+  
+  .main.active {
+    display: block;
+  }
+  
+  .main__border-bottom {
+    border-bottom: 1px solid black;
+    width: 100%;
+  }
+  
+  .header__item-arrowRight {
+    transform: rotate(180deg);
+  }
+  
+  .header__item {
+    font-size: 14px;
+    font-weight: 400;
+    cursor: pointer;
+  }
+  
+  .item__selected {
+    opacity: 50%;
+    cursor: default;
+  }
+  
+  .main__content {
+    display: flex;
+    margin: 30px 0 20px 30px;
+    width: 95%;
+  }
+  
+  .main__images {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .main__images-img img {
+    border-radius: 8px;
+  }
+  
+  .main__images-btn button {
+    cursor: pointer;
+    width: 279px;
+    height: 50px;
+    background: #060606;
+    color: #fefefe;
+    border-radius: 8.11px;
+    font-size: 12px;
+    line-height: 15.76px;
+    font-family: "TT Firs Neue";
+    font-weight: 700;
+    border: none;
+    box-shadow: 0px 3.91px 5.48px 0px #00000008;
+  }
+  
+  .main__text {
+    color: #060606;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+  }
+  
+  .main__logo {
+    font-family: Inter;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 58.09px;
+    text-align: center;
+  }
+  
+  .main__border {
+    border-bottom: 1px solid black;
+  }
+  
+  .main__info {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+  
+    gap: 20px;
+  }
+  
+  .main__header {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .main__FIO {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+  }
+  
+  .main__post {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16.8px;
+    color: #455773;
+  }
+  
+  .main__info-more {
+    
+    min-height: 364px;
+    width: 305px;
+    flex-direction: column;
+    gap: 25px;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 18px;
+    text-align: left;
+    display: flex;
+    position: relative;
+  }
+  .company__info{
+    margin-left: 30px;
+  }
+  .inf {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    
+    a{
+      color: #060606;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    a:hover{
+      scale: 1.05;
+    }
+  }
+  
+  .main__social {
+    padding: 25px 30px 20px 30px;
+  }
+  
+  .main__social-icons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .social-item {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  /* company Page */
+  
+  .company{
+    display: none;
+  }
+  
+  .company__header {
+    border-bottom: 1px solid black;
+    margin-top: 70px;
+  }
+  
+  .company__main {
+    
+    height: 480px;
+    display: flex;
+    padding: 30px;
+    justify-content: space-between;
+    
+  }
+  
+  .company__logo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 190px;
+  }
+  
+  .company__logo-text {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .company__logo-name {
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 24px;
+    text-align: left;
+  }
+  
+  .company__logo-description {
+    font-family: TT Firs Neue;
+    font-size: 14px;
+    line-height: 16.8px;
+    text-align: left;
+    font-weight: 600;
+  
+  }
+  
+  .company__logo-title {
+    margin-top: 20px;
+    display: inline;
+    font-family: Inter;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 58.09px;
+    text-align: center;
+    text-shadow: 0px 4px 4px 0px #00000040;
+  }
+  
+  .main__rank {
+    max-width: 225px;
+  }
+  
+  /* Адаптивные стили для экранов шириной меньше 660px */
+  @media (max-width: 660px) {
+    body {
+      background-color: #f4f4f4;
+    }
+  
+    .cart {
+      width: 100%;
+      height: fit-content; /* Устанавливаем высоту в fit-content */
+    }
+  
+    .header {
+      display: none;
+    }
+  
+  
+    .main {
+      display: block;
+      width: 100%;
+      height: fit-content;
+      padding-top: 74px;
+      position: relative;
+    }
+    .company{
+      display: block;
+    }
+  
+    .main__social-icons {
+      display: flex;
+      justify-content: center;
+    }
+  
+    .main__content {
+      margin: 0;
+      margin-top: 20px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+  
+      align-items: center;
+    }
+  
+    .main__logo {
+      position: absolute;
+      height: 104px;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+    }
+  
+    .main__images-btn {
+      display: none;
+    }
+  
+    .main__border {
+      display: none;
+    }
+  
+    .main__images-img {
+      width: 100%;
+      height: 340px;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+  
+    .main__images {
+      width: 90%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    .main__images-img img {
+      width: 100%;
+      border-radius: 0;
+    }
+  
+    .main__text {
+      align-items: center;
+    }
+  
+    .main__info {
+      margin-left: 0;
+      width: 100%;
+      align-items: center;
+      text-align: center;
+    }
+  
+    .main__info-more {
+      width: 100%;
+    }
+  
+    .company__main {
+      flex-direction: column;
+      height: auto;
+      padding: 10px;
+    }
+  
+    .company__logo {
+      width: 100%;
+      height: auto;
+    }
+  
+    .company__logo-text {
+      align-items: center;
+      text-align: center;
+    }
+  
+    .company__logo-title {
+      font-size: 36px;
+    }
+    .main__images-btn-mobile {
+      display: flex;
+      margin-top: -40px;
+      z-index: 1;
+      justify-content: center;
+      width: 100%;
+      gap: 20px;
+      button {
+        background: #fefefe;
+        box-shadow: 0px 4.05px 5.68px 0px #00000008;
+        border: none;
+        border-radius: 8.11px;
+        display: flex;
+        height: 60px;
+        max-width: 165px;
+        display: flex;
+        padding: 20px;
+        cursor: pointer;
+        width: 70%;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+    .btn-mobile {
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 14.4px;
+      text-align: left;
+  
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      justify-content: center;
+    }
+    .main__info {
+      display: flex;
+      align-items: start;
+      text-align: start;
+      padding: 20px 20px 0 20px;
+    }
+  
+    .main__text {
+      text-align: left;
+      width: 73%;
+    }
+  
+    .main__border-bottom {
+      display: none;
+    }
+    .main__border-mobile {
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 123.2%;
+      border-bottom: 1px solid black;
+    }
+  
+    .main__social-icons {
+      gap: 32px;
+      
+        a {
+          img{
+            width: 54px;
+            height: 54px;
+          }
+        
+      }
+    }
+    .company {
+      padding: 0;
+    }
+    .company__border-mobile {
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%);
+      width: 121.65%;
+      border-bottom: 1px solid black;
+    }
+    .company__logo-title {
+      display: none;
+    }
+    .company__header {
+      margin: 0;
+      border-bottom: 0px;
+    }
+    .company__logo {
+      position: relative;
+      padding-bottom: 20px;
+    }
+    .company__content {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .company__main {
+      width: 74%;
+      padding: 20px 20px 0 20px;
+      position: relative;
+    }
+    .main__info-more {
+      
+      margin: 15px 0;
+    }
+    .company__border-mobile-down {
+      width: 110.23%;
+      border-bottom: 1px solid black;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .main__border-mobile-down{
+      width: 90%;
+      border-bottom: 1px solid black;
+    }
+    .company__logo-text {
+      align-items: start;
+      text-align: start;
+    }
+    .company__logo-name {
+      
+      font-size: 18px;
+      font-weight: 800;
+      line-height: 21.6px;
+      text-align: left;
+    }
+    .company__logo-description{
+      
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.8px;
+  text-align: left;
+  
+    }
+  }
+  
+  @media (width<350px) {
+    .main__images-btn-mobile {
+      button {
+        padding: 0;
+        max-width: 130px;
+      }
+    }
+  }
+  
