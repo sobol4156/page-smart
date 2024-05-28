@@ -42,10 +42,7 @@
 
 .main__images-btn-mobile {
   display: none;
-  justify-content: space-around;
-  img {
-    cursor: pointer;
-  }
+
 }
 
 .main.active {
@@ -73,6 +70,7 @@
 }
 
 .main__content {
+  
   display: flex;
   margin: 30px 0 20px 30px;
 }
@@ -195,6 +193,7 @@
 }
 
 .company__main {
+  
   height: 480px;
   display: flex;
   padding: 30px;
@@ -313,6 +312,9 @@
 
   .main__images {
     width: 90%;
+    display: flex;
+    
+    align-items: center;
   }
 
   .main__images-img img {
@@ -358,6 +360,12 @@
     display: flex;
     margin-top: -40px;
     z-index: 1;
+    justify-content: space-around;
+    
+    img {
+      cursor: pointer;
+      width: 100%;
+    }
   }
   .main__info {
     display: flex;
@@ -388,5 +396,51 @@
         height: 54px;
       }
     }
+  }
+  .company{
+    padding: 0;
+  }
+  .company__border-mobile {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 121.65%;
+    border-bottom: 1px solid black;
+  }
+  .company__logo-title{
+    display: none;
+  }
+  .company__header{
+    margin: 0;
+    border-bottom: 0px;
+  }
+  .company__logo{
+    position: relative;
+    padding-bottom: 20px;
+  }
+  .company__content{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .company__main{
+    width: 74%;
+    padding: 40px 20px 0 20px;
+    position: relative;
+  }
+  .main__info-more{
+    margin: 20px 0;
+  }
+  .company__border-mobile-down{
+    
+    width: 110.23%;
+    border-bottom: 1px solid black;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }

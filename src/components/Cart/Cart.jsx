@@ -166,9 +166,10 @@ const Cart = () => {
           </div>
         )}
       </main>
-      <main className={`main ${showCompany ? "active" : ""}`}>
-        {showCompany && (
+      <main className={`main company ${showCompany ? "active" : ""}`}>
+        {!showCompany && (
           <div className="company__content">
+            
             <div className="company__header"></div>
             <div className="company__main">
               <div className="company__logo">
@@ -179,7 +180,9 @@ const Cart = () => {
                     Описание компании
                   </div>
                 </div>
+                <div className="company__border-mobile"></div>
               </div>
+              
               <div className="main__info-more">
                 <div className="main__phone inf">
                   <img src={phone} alt="" /> <span>+7 (000) 000-00-00</span>
@@ -206,7 +209,9 @@ const Cart = () => {
                 <div className="main__fax inf">
                   <img src={fax} alt="" /> <span>Факс</span>
                 </div>
+                
               </div>
+              <div className="company__border-mobile-down"></div>
             </div>
             <div className="main__border-bottom"></div>
             <div className="main__social">
