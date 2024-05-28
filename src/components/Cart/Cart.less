@@ -1,5 +1,12 @@
+/* Исходные стили */
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .cart {
-  height: 723px;
   width: 648px;
   display: flex;
   flex-direction: column;
@@ -16,21 +23,29 @@
 .header__item {
   display: flex;
   gap: 5px;
+}
 
-  div {
-    display: flex;
-    align-items: center;
-  }
+.header__item div {
+  display: flex;
+  align-items: center;
 }
 
 .main {
   display: none;
   background: #f4f4f4;
   max-width: 100%;
-  height: 696px;
+
   border-radius: 8px;
   color: #060606;
   transition: all 0.3s;
+}
+
+.main__images-btn-mobile {
+  display: none;
+  justify-content: space-around;
+  img {
+    cursor: pointer;
+  }
 }
 
 .main.active {
@@ -56,6 +71,7 @@
   opacity: 50%;
   cursor: default;
 }
+
 .main__content {
   display: flex;
   margin: 30px 0 20px 30px;
@@ -66,45 +82,47 @@
   flex-direction: column;
   justify-content: space-between;
   gap: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
-.main__images-img {
-  img {
-    border-radius: 8px;
-  }
+.main__images-img img {
+  border-radius: 8px;
 }
-.main__images-btn {
-  button {
-    cursor: pointer;
-    width: 279px;
-    height: 50px;
-    background: #060606;
-    color: #fefefe;
-    border-radius: 8.11px;
-    font-size: 12px;
-    line-height: 15.76px;
-    font-family: "TT Firs Neue";
-    font-weight: 700;
-    border: none;
-    box-shadow: 0px 3.91px 5.48px 0px #00000008;
-  }
+
+.main__images-btn button {
+  cursor: pointer;
+  width: 279px;
+  height: 50px;
+  background: #060606;
+  color: #fefefe;
+  border-radius: 8.11px;
+  font-size: 12px;
+  line-height: 15.76px;
+  font-family: "TT Firs Neue";
+  font-weight: 700;
+  border: none;
+  box-shadow: 0px 3.91px 5.48px 0px #00000008;
 }
+
 .main__text {
   color: #060606;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   flex-grow: 1;
-  .main__logo {
-    font-family: Inter;
-    font-size: 48px;
-    font-weight: 700;
-    line-height: 58.09px;
-    text-align: center;
-  }
-  .main__border {
-    border-bottom: 1px solid black;
-  }
+}
+
+.main__logo {
+  font-family: Inter;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 58.09px;
+  text-align: center;
+}
+
+.main__border {
+  border-bottom: 1px solid black;
 }
 
 .main__info {
@@ -112,28 +130,29 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
 
-  .main__header {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-  }
-  .main__FIO {
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 24px;
-  }
-  .main__post {
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 16.8px;
+.main__header {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
 
-    color: #455773;
-  }
+.main__FIO {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+.main__post {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.8px;
+  color: #455773;
 }
 
 .main__info-more {
-  height: 364px;
+  min-height: 364px;
   width: 305px;
   display: flex;
   flex-direction: column;
@@ -144,6 +163,7 @@
   text-align: left;
   display: flex;
 }
+
 .inf {
   display: flex;
   gap: 10px;
@@ -152,22 +172,22 @@
 
 .main__social {
   padding: 25px 30px 30px 30px;
-
-  .main__social-icons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-
-    .social-item {
-      display: flex;
-      align-items: center;
-      cursor: pointer;
-    }
-  }
 }
 
-// company Page
+.main__social-icons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.social-item {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* company Page */
 
 .company__header {
   border-bottom: 1px solid black;
@@ -187,26 +207,28 @@
   justify-content: space-between;
   height: 190px;
 }
+
 .company__logo-text {
   display: flex;
   flex-direction: column;
   gap: 10px;
-
-  .company__logo-name {
-    font-size: 20px;
-    font-weight: 800;
-    line-height: 24px;
-    text-align: left;
-  }
-
-  .company__logo-description {
-    font-family: TT Firs Neue;
-    font-size: 14px;
-    line-height: 16.8px;
-    text-align: left;
-    font-weight: 600;
-  }
 }
+
+.company__logo-name {
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 24px;
+  text-align: left;
+}
+
+.company__logo-description {
+  font-family: TT Firs Neue;
+  font-size: 14px;
+  line-height: 16.8px;
+  text-align: left;
+  font-weight: 600;
+}
+
 .company__logo-title {
   margin-top: 20px;
   display: inline;
@@ -222,28 +244,149 @@
   max-width: 225px;
 }
 
-@media (width<660px) {
-  .header{
+/* Адаптивные стили для экранов шириной меньше 660px */
+@media (max-width: 660px) {
+  body {
+    background-color: #f4f4f4;
+  }
+
+  .cart {
+    width: 100%;
+    height: fit-content; /* Устанавливаем высоту в fit-content */
+  }
+
+  .header {
     display: none;
   }
+
+  .wrapper {
+  }
+
   .main {
     display: block;
-    padding: 0;
-
+    width: 100%;
     height: fit-content;
-    
-    
+    padding-top: 74px;
+    position: relative;
   }
-  .main__social-icons{
+
+  .main__social-icons {
     display: flex;
-    
+    justify-content: center;
   }
+
   .main__content {
     margin: 0;
-    width: fit-content;
+    margin-top: 20px;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+
     align-items: center;
+  }
+
+  .main__logo {
+    position: absolute;
+    height: 104px;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+  }
+
+  .main__images-btn {
+    display: none;
+  }
+
+  .main__border {
+    display: none;
+  }
+
+  .main__images-img {
+    width: 100%;
+    height: 369px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+
+  .main__images {
+    width: 90%;
+  }
+
+  .main__images-img img {
+    width: 100%;
+    border-radius: 0;
+  }
+
+  .main__text {
+    align-items: center;
+  }
+
+  .main__info {
+    margin-left: 0;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+
+  .main__info-more {
+    width: 100%;
+  }
+
+  .company__main {
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+  }
+
+  .company__logo {
+    width: 100%;
+    height: auto;
+  }
+
+  .company__logo-text {
+    align-items: center;
+    text-align: center;
+  }
+
+  .company__logo-title {
+    font-size: 36px;
+  }
+  .main__images-btn-mobile {
+    display: flex;
+    margin-top: -40px;
+    z-index: 1;
+  }
+  .main__info {
+    display: flex;
+    align-items: start;
+    text-align: start;
+    padding: 20px;
+  }
+
+  .main__text {
+    text-align: left;
+    width: 73%;
+  }
+
+  .main__border-bottom{
+    display: none;
+  }
+  .main__border-mobile{
+    width: 90%;
+    border-bottom: 1px solid black;
+  }
+
+  .main__social-icons {
+    gap: 32px;
+    .social-item {
+      
+      img {
+        width: 54px;
+        height: 54px;
+      }
+    }
   }
 }

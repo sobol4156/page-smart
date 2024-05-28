@@ -11,6 +11,9 @@ import bd from "../../../public/img/svg/iconsInfo/bd.svg";
 import rank from "../../../public/img/svg/iconsInfo/rank.svg";
 import fax from "../../../public/img/svg/iconsInfo/fax.svg";
 
+import call from "../../../public/img/svg/mobile-btn/call.svg";
+import saveCard from "../../../public/img/svg/mobile-btn/saveCard.svg";
+
 import telegram from "../../../public/img/svg/social/telegram.svg";
 import whatsup from "../../../public/img/svg/social/whatsup.svg";
 import viber from "../../../public/img/svg/social/viber.svg";
@@ -59,64 +62,70 @@ const Cart = () => {
       <main className={`main ${!showCompany ? "active" : ""}`}>
         {!showCompany && (
           <div>
-          <div className="main__content">
-            <div className="main__images">
-              <div className="main__images-img">
-                <img src={photo1} alt="" />
-              </div>
-              <div className="main__images-btn">
-                <button>ДОБАВИТЬ В КОНТАКТЫ</button>
-              </div>
-            </div>
-            <div className="main__text">
-              <div className="main__logo">
-                <span>Logo</span>
-              </div>
-              <div className="main__border"></div>
-              <div className="main__info">
-                <div className="main__header">
-                  <div className="main__FIO">
-                    <span>
-                      Иванов <br /> Иван Петрович
-                    </span>
+            <div className="main__content">
+              <div className="main__images">
+                <div className="main__images-img">
+                  <img src={photo1} alt="" />
+
+                </div>
+                <div className="main__images-btn">
+                  <button>ДОБАВИТЬ В КОНТАКТЫ</button>
+                </div>
+                <div className="main__images-btn-mobile">
+                    <img src={saveCard} alt="" />
+                    <img src={call} alt="" />
                   </div>
-                  <div className="main__post">
-                    <span>Директор</span>
+              </div>
+              <div className="main__border-mobile"></div>
+              <div className="main__text">
+                <div className="main__logo">
+                  <span>Logo</span>
+                </div>
+                <div className="main__border"></div>
+                <div className="main__info">
+                  <div className="main__header">
+                    <div className="main__FIO">
+                      <span>
+                        Иванов <br /> Иван Петрович
+                      </span>
+                    </div>
+                    <div className="main__post">
+                      <span>Директор</span>
+                    </div>
+                  </div>
+                  <div className="main__info-more">
+                    <div className="main__phone inf">
+                      <img src={smartphone} alt="" />{" "}
+                      <span>+7 (000) 000-00-00</span>
+                    </div>
+                    <div className="main__phone inf">
+                      <img src={phone} alt="" /> <span>+7 (000) 000-00-00</span>
+                    </div>
+                    <div className="main__phone inf">
+                      <img src={phone} alt="" /> <span>+7 (000) 000-00-00</span>
+                    </div>
+                    <div className="main__email inf">
+                      <img src={email} alt="" /> <span>Почта</span>
+                    </div>
+                    <div className="main__website inf">
+                      <img src={websait} alt="" /> <span>Личный сайт</span>
+                    </div>
+                    <div className="main__address inf">
+                      <img src={address} alt="" /> <span>Адрес</span>
+                    </div>
+                    <div className="main__BD inf">
+                      <img src={bd} alt="" /> <span>Дата рождения</span>
+                    </div>
+                    <div className="main__rank inf">
+                      <img src={rank} alt="" />{" "}
+                      <span>Звание, учёная степень</span>
+                    </div>
                   </div>
                 </div>
-                <div className="main__info-more">
-                  <div className="main__phone inf">
-                    <img src={smartphone} alt="" />{" "}
-                    <span>+7 (000) 000-00-00</span>
-                  </div>
-                  <div className="main__phone inf">
-                    <img src={phone} alt="" /> <span>+7 (000) 000-00-00</span>
-                  </div>
-                  <div className="main__phone inf">
-                    <img src={phone} alt="" /> <span>+7 (000) 000-00-00</span>
-                  </div>
-                  <div className="main__email inf">
-                    <img src={email} alt="" /> <span>Почта</span>
-                  </div>
-                  <div className="main__website inf">
-                    <img src={websait} alt="" /> <span>Личный сайт</span>
-                  </div>
-                  <div className="main__address inf">
-                    <img src={address} alt="" /> <span>Адрес</span>
-                  </div>
-                  <div className="main__BD inf">
-                    <img src={bd} alt="" /> <span>Дата рождения</span>
-                  </div>
-                  <div className="main__rank inf">
-                    <img src={rank} alt="" /> <span>Звание, учёная степень</span>
-                  </div>
-                </div>
               </div>
-              
+              <div className="main__border-mobile"></div>
             </div>
-            
-          </div>
-                      <div className="main__border-bottom"></div>
+            <div className="main__border-bottom"></div>
             <div className="main__social">
               <div className="main__social-icons">
                 <div className="social-item">
@@ -155,7 +164,6 @@ const Cart = () => {
               </div>
             </div>
           </div>
-
         )}
       </main>
       <main className={`main ${showCompany ? "active" : ""}`}>
@@ -167,7 +175,9 @@ const Cart = () => {
                 <div className="company__logo-title">Logo</div>
                 <div className="company__logo-text">
                   <div className="company__logo-name">Название компании</div>
-                  <div className="company__logo-description">Описание компании</div>
+                  <div className="company__logo-description">
+                    Описание компании
+                  </div>
                 </div>
               </div>
               <div className="main__info-more">
@@ -187,7 +197,11 @@ const Cart = () => {
                   <img src={bd} alt="" /> <span>Дата основания</span>
                 </div>
                 <div className="main__rank inf">
-                  <img src={rank} alt="" /> <span>Клиенты Клиенты Клиенты Клиенты Клиенты Клиенты Клиенты Клиенты Клиенты Клиенты Клиенты Клиенты</span>
+                  <img src={rank} alt="" />{" "}
+                  <span>
+                    Клиенты Клиенты Клиенты Клиенты Клиенты Клиенты Клиенты
+                    Клиенты Клиенты Клиенты Клиенты Клиенты
+                  </span>
                 </div>
                 <div className="main__fax inf">
                   <img src={fax} alt="" /> <span>Факс</span>
