@@ -276,8 +276,6 @@
     display: none;
   }
 
-  .wrapper {
-  }
 
   .main {
     display: block;
@@ -415,7 +413,7 @@
     display: flex;
     align-items: start;
     text-align: start;
-    padding: 20px;
+    padding: 20px 20px 0 20px;
   }
 
   .main__text {
@@ -437,11 +435,13 @@
 
   .main__social-icons {
     gap: 32px;
-    .social-item {
-      img {
-        width: 54px;
-        height: 54px;
-      }
+    
+      a {
+        img{
+          width: 54px;
+          height: 54px;
+        }
+      
     }
   }
   .company {
@@ -479,6 +479,7 @@
     position: relative;
   }
   .main__info-more {
+    
     margin: 15px 0;
   }
   .company__border-mobile-down {
@@ -488,6 +489,10 @@
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
+  }
+  .main__border-mobile-down{
+    width: 90%;
+    border-bottom: 1px solid black;
   }
   .company__logo-text {
     align-items: start;

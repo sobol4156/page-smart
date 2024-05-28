@@ -122,6 +122,10 @@ const Cart = () => {
                       <img src={phone} alt="" />
                       <a href="tel:+70000000000">+7 (000) 000-00-00</a>
                     </div>
+                    <div className="main__phone inf">
+                      <img src={phone} alt="" />
+                      <a href="tel:+70000000000">+7 (000) 000-00-00</a>
+                    </div>
                     <div className="main__email inf">
                       <img src={email} alt="" />
                       <a href="mailto:example@example.com">
@@ -151,7 +155,7 @@ const Cart = () => {
                   </div>
                 </div>
               </div>
-              <div className="main__border-mobile"></div>
+              <div className="main__border-mobile-down"></div>
             </div>
             <div className="main__border-bottom"></div>
             <div className="main__social">
