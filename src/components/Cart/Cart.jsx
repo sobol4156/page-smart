@@ -55,7 +55,7 @@ const Cart = () => {
           </div>
         </div>
       </header>
-      <main className={`main ${showCompany ? "active" : ""}`}>
+      <main className={`main ${!showCompany ? "active" : ""}`}>
         <div className="main__content">
           <div className="main__images">
             <div className="main__images-img">
@@ -151,7 +151,7 @@ const Cart = () => {
           </div>
         </div>
       </main>
-      <main className={`main ${!showCompany ? "active" : ""}`}>
+      <main className={`main ${showCompany ? "active" : ""}`}>
         <div className="company__content">
           <div className="company__header"></div>
           <div className="company__main">
