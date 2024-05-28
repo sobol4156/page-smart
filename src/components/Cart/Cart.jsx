@@ -1,34 +1,18 @@
 import React, { useState } from "react";
 import "./Cart.less";
-import arrow from "../../../public/img/svg/arrow.svg";
-import photo1 from "../../../public/img/svg/photo1.svg";
-import smartphone from "../../../public/img/svg/iconsInfo/smartphone.svg";
-import phone from "../../../public/img/svg/iconsInfo/phone.svg";
-import email from "../../../public/img/svg/iconsInfo/email.svg";
-import websait from "../../../public/img/svg/iconsInfo/websait.svg";
-import address from "../../../public/img/svg/iconsInfo/address.svg";
-import bd from "../../../public/img/svg/iconsInfo/bd.svg";
-import rank from "../../../public/img/svg/iconsInfo/rank.svg";
-import fax from "../../../public/img/svg/iconsInfo/fax.svg";
-
-import call from "../../../public/img/svg/mobile-btn/call.svg";
-import saveCard from "../../../public/img/svg/mobile-btn/saveCard.svg";
-
-import telegram from "../../../public/img/svg/social/telegram.svg";
-import whatsup from "../../../public/img/svg/social/whatsup.svg";
-import viber from "../../../public/img/svg/social/viber.svg";
-import instagram from "../../../public/img/svg/social/instagram.svg";
-import vk from "../../../public/img/svg/social/vk.svg";
-import facebook from "../../../public/img/svg/social/facebook.svg";
-import youtube from "../../../public/img/svg/social/youtube.svg";
-import ok from "../../../public/img/svg/social/ok.svg";
-import dzen from "../../../public/img/svg/social/dzen.svg";
-import tiktok from "../../../public/img/svg/social/tiktok.svg";
-import linkedin from "../../../public/img/svg/social/linkedin.svg";
+import { iconsInfo, mobileBtn, social, general } from "../../../icons.js";
 
 const Cart = () => {
   const [showCompany, setShowCompany] = useState(false);
+  const [copiedData, setCopiedData] = useState("ДОБАВИТЬ В КОНТАКТЫ");
 
+
+  //деструктуризация иконок
+  const {photo1, arrow} = general;
+  const {address, bd, email, fax, phone, rank, smartphone, websait} = iconsInfo;
+  const {call, saveCard} = mobileBtn;
+  const {dzen, facebook, instagram, linkedin, ok, telegram, tiktok, viber, vk, whatsup, youtube} = social;
+  // Функции смены страницы
   const handleToggleCompany = () => {
     setShowCompany(true);
   };
@@ -36,6 +20,29 @@ const Cart = () => {
   const handleTogglEemployee = () => {
     setShowCompany(false);
   };
+
+  // копируем данные и меняем кнопку
+  const handleAddContact = () => {
+    const contactName = "Иванов Иван Петрович";
+    const contactPhone = "+7 (000) 000-00-00";
+    const contactInfo = `${contactName}, ${contactPhone}`;
+
+    navigator.clipboard
+      .writeText(contactInfo)
+      .then(() => console.log("Contact copied to clipboard"))
+      .catch((error) =>
+        console.log("Error copying contact to clipboard: " + error)
+      );
+
+    setCopiedData("СКОПИРОВАНО");
+  };
+
+  // Проверка кнопки добавить в контакты
+  if (copiedData !== "ДОБАВИТЬ В КОНТАКТЫ") {
+    setTimeout(() => {
+      setCopiedData("ДОБАВИТЬ В КОНТАКТЫ");
+    }, 1500);
+  }
 
   return (
     <div className="cart">
@@ -45,7 +52,7 @@ const Cart = () => {
           className={`header__item ${!showCompany ? "item__selected" : ""}`}
         >
           <div>
-            <img src={arrow} alt="1" />
+            <img src={arrow} alt="" />
           </div>
           <div>о сотруднике</div>
         </div>
@@ -68,19 +75,20 @@ const Cart = () => {
                   <img src={photo1} alt="" />
                 </div>
                 <div className="main__images-btn">
-                  <button>ДОБАВИТЬ В КОНТАКТЫ</button>
+                  <button onClick={handleAddContact}>{copiedData}</button>
                 </div>
                 <div className="main__images-btn-mobile">
-                  <button>
+                  <button onClick={handleAddContact}>
                     <div className="btn-mobile">
-                      <div><img src={saveCard} alt="" /></div>
-                      
+                      <div>
+                        <img src={saveCard} alt="" />
+                      </div>
                       <span>Сохранить визитку</span>
                     </div>
                   </button>
                   <button>
                     <div className="btn-mobile">
-                      <div >
+                      <div>
                         <img src={call} alt="" />
                       </div>
                       <span>Позвонить</span>
@@ -88,7 +96,6 @@ const Cart = () => {
                   </button>
                 </div>
               </div>
-              
               <div className="main__text">
                 <div className="main__logo">
                   <span>Logo</span>
@@ -96,7 +103,6 @@ const Cart = () => {
                 <div className="main__border"></div>
                 <div className="main__info">
                   <div className="main__header">
-
                     <div className="main__FIO">
                       <span>
                         Иванов <br /> Иван Петрович
@@ -106,24 +112,31 @@ const Cart = () => {
                       <span>Директор</span>
                     </div>
                   </div>
-                  
                   <div className="main__info-more">
-                  <div className="main__border-mobile"></div>
+                    <div className="main__border-mobile"></div>
                     <div className="main__phone inf">
-                      <img src={smartphone} alt="" />{" "}
-                      <span>+7 (000) 000-00-00</span>
+                      <img src={smartphone} alt="" />
+                      <a href="tel:+70000000000">+7 (000) 000-00-00</a>
                     </div>
                     <div className="main__phone inf">
-                      <img src={phone} alt="" /> <span>+7 (000) 000-00-00</span>
-                    </div>
-                    <div className="main__phone inf">
-                      <img src={phone} alt="" /> <span>+7 (000) 000-00-00</span>
+                      <img src={phone} alt="" />
+                      <a href="tel:+70000000000">+7 (000) 000-00-00</a>
                     </div>
                     <div className="main__email inf">
-                      <img src={email} alt="" /> <span>Почта</span>
+                      <img src={email} alt="" />
+                      <a href="mailto:example@example.com">
+                        example@example.com
+                      </a>
                     </div>
                     <div className="main__website inf">
-                      <img src={websait} alt="" /> <span>Личный сайт</span>
+                      <img src={websait} alt="" />
+                      <a
+                        href="http://example.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Личный сайт
+                      </a>
                     </div>
                     <div className="main__address inf">
                       <img src={address} alt="" /> <span>Адрес</span>
@@ -143,46 +156,90 @@ const Cart = () => {
             <div className="main__border-bottom"></div>
             <div className="main__social">
               <div className="main__social-icons">
-                <div className="social-item">
-                  <img src={telegram} alt="" />
-                </div>
-                <div className="social-item">
-                  <img src={whatsup} alt="" />
-                </div>
-                <div className="social-item">
-                  <img src={viber} alt="" />
-                </div>
-                <div className="social-item">
-                  <img src={instagram} alt="" />
-                </div>
-                <div className="social-item">
-                  <img src={vk} alt="" />
-                </div>
-                <div className="social-item">
-                  <img src={facebook} alt="" />
-                </div>
-                <div className="social-item">
-                  <img src={youtube} alt="" />
-                </div>
-                <div className="social-item">
-                  <img src={ok} alt="" />
-                </div>
-                <div className="social-item">
-                  <img src={dzen} alt="" />
-                </div>
-                <div className="social-item">
-                  <img src={tiktok} alt="" />
-                </div>
-                <div className="social-item">
-                  <img src={linkedin} alt="" />
-                </div>
+                <a
+                  href="https://telegram.org"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src={telegram} alt="Telegram" />
+                </a>
+                <a
+                  href="https://whatsapp.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src={whatsup} alt="WhatsApp" />
+                </a>
+                <a
+                  href="https://viber.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src={viber} alt="Viber" />
+                </a>
+                <a
+                  href="https://instagram.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src={instagram} alt="Instagram" />
+                </a>
+                <a
+                  href="https://vk.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src={vk} alt="VK" />
+                </a>
+                <a
+                  href="https://facebook.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src={facebook} alt="Facebook" />
+                </a>
+                <a
+                  href="https://youtube.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src={youtube} alt="YouTube" />
+                </a>
+                <a
+                  href="https://ok.ru"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src={ok} alt="Odnoklassniki" />
+                </a>
+                <a
+                  href="https://dzen.ru"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src={dzen} alt="Dzen" />
+                </a>
+                <a
+                  href="https://tiktok.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src={tiktok} alt="TikTok" />
+                </a>
+                <a
+                  href="https://linkedin.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src={linkedin} alt="LinkedIn" />
+                </a>
               </div>
             </div>
           </div>
         )}
       </main>
       <main className={`main company ${showCompany ? "active" : ""}`}>
-        {!showCompany && (
+        {showCompany && (
           <div className="company__content">
             <div className="company__header"></div>
             <div className="company__main">
@@ -191,21 +248,29 @@ const Cart = () => {
                 <div className="company__logo-text">
                   <div className="company__logo-name">Название компании</div>
                   <div className="company__logo-description">
-                    Описание компании
+                    Описание деятельности компании
                   </div>
                 </div>
                 <div className="company__border-mobile"></div>
               </div>
-
-              <div className="main__info-more">
+              <div className="main__info-more company__info">
                 <div className="main__phone inf">
-                  <img src={phone} alt="" /> <span>+7 (000) 000-00-00</span>
+                  <img src={phone} alt="" />
+                  <a href="tel:+70000000000">+7 (000) 000-00-00</a>
                 </div>
                 <div className="main__email inf">
-                  <img src={email} alt="" /> <span>Почта</span>
+                  <img src={email} alt="" />
+                  <a href="mailto:example@example.com">example@example.com</a>
                 </div>
                 <div className="main__website inf">
-                  <img src={websait} alt="" /> <span>Личный сайт</span>
+                  <img src={websait} alt="" />
+                  <a
+                    href="http://example.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Личный сайт
+                  </a>
                 </div>
                 <div className="main__address inf">
                   <img src={address} alt="" /> <span>Адрес</span>
@@ -217,7 +282,7 @@ const Cart = () => {
                   <img src={rank} alt="" />{" "}
                   <span>
                     Клиенты Клиенты Клиенты Клиенты Клиенты Клиенты Клиенты
-                    Клиенты Клиенты Клиенты Клиенты Клиенты
+                    Клиенты Клиенты Клиенты Клиенты Клиенты Клиенты
                   </span>
                 </div>
                 <div className="main__fax inf">
@@ -229,39 +294,83 @@ const Cart = () => {
             <div className="main__border-bottom"></div>
             <div className="main__social">
               <div className="main__social-icons">
-                <div className="social-item">
-                  <img src={telegram} alt="" />
-                </div>
-                <div className="social-item">
-                  <img src={whatsup} alt="" />
-                </div>
-                <div className="social-item">
-                  <img src={viber} alt="" />
-                </div>
-                <div className="social-item">
-                  <img src={instagram} alt="" />
-                </div>
-                <div className="social-item">
-                  <img src={vk} alt="" />
-                </div>
-                <div className="social-item">
-                  <img src={facebook} alt="" />
-                </div>
-                <div className="social-item">
-                  <img src={youtube} alt="" />
-                </div>
-                <div className="social-item">
-                  <img src={ok} alt="" />
-                </div>
-                <div className="social-item">
-                  <img src={dzen} alt="" />
-                </div>
-                <div className="social-item">
-                  <img src={tiktok} alt="" />
-                </div>
-                <div className="social-item">
-                  <img src={linkedin} alt="" />
-                </div>
+                <a
+                  href="https://telegram.org"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src={telegram} alt="Telegram" />
+                </a>
+                <a
+                  href="https://whatsapp.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src={whatsup} alt="WhatsApp" />
+                </a>
+                <a
+                  href="https://viber.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src={viber} alt="Viber" />
+                </a>
+                <a
+                  href="https://instagram.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src={instagram} alt="Instagram" />
+                </a>
+                <a
+                  href="https://vk.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src={vk} alt="VK" />
+                </a>
+                <a
+                  href="https://facebook.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src={facebook} alt="Facebook" />
+                </a>
+                <a
+                  href="https://youtube.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src={youtube} alt="YouTube" />
+                </a>
+                <a
+                  href="https://ok.ru"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src={ok} alt="Odnoklassniki" />
+                </a>
+                <a
+                  href="https://dzen.ru"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src={dzen} alt="Dzen" />
+                </a>
+                <a
+                  href="https://tiktok.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src={tiktok} alt="TikTok" />
+                </a>
+                <a
+                  href="https://linkedin.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src={linkedin} alt="LinkedIn" />
+                </a>
               </div>
             </div>
           </div>
