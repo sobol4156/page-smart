@@ -1,17 +1,54 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Cart.less";
 import { iconsInfo, mobileBtn, social, general } from "../../../icons.js";
 
 const Cart = () => {
   const [showCompany, setShowCompany] = useState(false);
   const [copiedData, setCopiedData] = useState("ДОБАВИТЬ В КОНТАКТЫ");
+  const [data, setData] = useState({});
+  const [loading, setLoading] = useState(true);
 
+  useEffect(() => {
+    async function fetchData() {
+      const url = "https://665673099f970b3b36c56d1d.mockapi.io/company";
+      try {
+        const response = await fetch(url);
+        if (!response.ok) {
+          throw new Error("Network response was not ok " + response.statusText);
+        }
+        const responseJson = await response.json();
+        setData(responseJson[0]);
+        setLoading(false);
+        console.log(responseJson[0]);
+      } catch (error) {
+        console.error(
+          "There has been a problem with your fetch operation:",
+          error
+        );
+        setLoading(false);
+      }
+    }
 
+    fetchData();
+  }, []);
   //деструктуризация иконок
-  const {photo1, arrow} = general;
-  const {address, bd, email, fax, phone, rank, smartphone, websait} = iconsInfo;
-  const {call, saveCard} = mobileBtn;
-  const {dzen, facebook, instagram, linkedin, ok, telegram, tiktok, viber, vk, whatsup, youtube} = social;
+  const { photo1, arrow } = general;
+  const { address, bd, email, fax, phone, rank, smartphone, websait } =
+    iconsInfo;
+  const { call, saveCard } = mobileBtn;
+  const {
+    dzen,
+    facebook,
+    instagram,
+    linkedin,
+    ok,
+    telegram,
+    tiktok,
+    viber,
+    vk,
+    whatsup,
+    youtube,
+  } = social;
   // Функции смены страницы
   const handleToggleCompany = () => {
     setShowCompany(true);
@@ -42,6 +79,10 @@ const Cart = () => {
     setTimeout(() => {
       setCopiedData("ДОБАВИТЬ В КОНТАКТЫ");
     }, 1500);
+  }
+
+  if (loading) {
+    return <div>Идёт загрузка</div>;
   }
 
   return (
@@ -108,11 +149,11 @@ const Cart = () => {
                   <div className="main__header">
                     <div className="main__FIO">
                       <span>
-                        Иванов <br /> Иван Петрович
+                        {data.surname} <br /> {data.fullName} 
                       </span>
                     </div>
                     <div className="main__post">
-                      <span>Директор</span>
+                      <span>{data.post}</span>
                     </div>
                   </div>
                   {/* Инфа о человеке */}
@@ -120,21 +161,19 @@ const Cart = () => {
                     <div className="main__border-mobile"></div>
                     <div className="main__phone inf">
                       <img src={smartphone} alt="" />
-                      <a href="tel:+70000000000">+7 (000) 000-00-00</a>
+                      <a href="tel:+70000000000">{data.smartphone}</a>
                     </div>
                     <div className="main__phone inf">
                       <img src={phone} alt="" />
-                      <a href="tel:+70000000000">+7 (000) 000-00-00</a>
+                      <a href="tel:+70000000000">{data.phone1}</a>
                     </div>
                     <div className="main__phone inf">
                       <img src={phone} alt="" />
-                      <a href="tel:+70000000000">+7 (000) 000-00-00</a>
+                      <a href="tel:+70000000000">{data.phone2}</a>
                     </div>
                     <div className="main__email inf">
                       <img src={email} alt="" />
-                      <a href="mailto:example@example.com">
-                        example@example.com
-                      </a>
+                      <a href="mailto:example@example.com">{data.email}</a>
                     </div>
                     <div className="main__website inf">
                       <img src={websait} alt="" />
@@ -143,18 +182,17 @@ const Cart = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        Личный сайт
+                        {data.websait}
                       </a>
                     </div>
                     <div className="main__address inf">
-                      <img src={address} alt="" /> <span>Адрес</span>
+                      <img src={address} alt="" /> <span>{data.address}</span>
                     </div>
                     <div className="main__BD inf">
-                      <img src={bd} alt="" /> <span>Дата рождения</span>
+                      <img src={bd} alt="" /> <span>{data.DB}</span>
                     </div>
                     <div className="main__rank inf">
-                      <img src={rank} alt="" />{" "}
-                      <span>Звание, учёная степень</span>
+                      <img src={rank} alt="" /> <span>{data.rank}</span>
                     </div>
                   </div>
                 </div>
@@ -162,7 +200,7 @@ const Cart = () => {
               {/* Кастомные линия */}
               <div className="main__border-mobile-down"></div>
             </div>
-             {/* Кастомные линия */}
+            {/* Кастомные линия */}
             <div className="main__border-bottom"></div>
             <div className="main__social">
               {/* Социальные сети с переходами по ссылке */}
@@ -251,147 +289,142 @@ const Cart = () => {
       </main>
       {/* Вторая страница */}
       <main className={`main company ${showCompany ? "active" : ""}`}>
-        
-          <div className="company__content">
-            <div className="company__header"></div>
-            <div className="company__main">
-              {/* Заголовок компании */}
-              <div className="company__logo">
-                <div className="company__logo-title">Logo</div>
-                <div className="company__logo-text">
-                  <div className="company__logo-name">Название компании</div>
-                  <div className="company__logo-description">
-                    Описание деятельности компании
-                  </div>
-                </div>
-                {/* Кастомная линия */}
-                <div className="company__border-mobile"></div>
-              </div>
-              {/* Более подробное описание компании */}
-              <div className="main__info-more company__info">
-                <div className="main__phone inf">
-                  <img src={phone} alt="" />
-                  <a href="tel:+70000000000">+7 (000) 000-00-00</a>
-                </div>
-                <div className="main__email inf">
-                  <img src={email} alt="" />
-                  <a href="mailto:example@example.com">example@example.com</a>
-                </div>
-                <div className="main__website inf">
-                  <img src={websait} alt="" />
-                  <a
-                    href="http://example.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Личный сайт
-                  </a>
-                </div>
-                <div className="main__address inf">
-                  <img src={address} alt="" /> <span>Адрес</span>
-                </div>
-                <div className="main__BD inf">
-                  <img src={bd} alt="" /> <span>Дата основания</span>
-                </div>
-                <div className="main__rank inf">
-                  <img src={rank} alt="" />{" "}
-                  <span>
-                    Клиенты Клиенты Клиенты Клиенты Клиенты Клиенты
-                    Клиенты Клиенты Клиенты Клиенты Клиенты Клиенты
-                  </span>
-                </div>
-                <div className="main__fax inf">
-                  <img src={fax} alt="" /> <span>Факс</span>
+        <div className="company__content">
+          <div className="company__header"></div>
+          <div className="company__main">
+            {/* Заголовок компании */}
+            <div className="company__logo">
+              <div className="company__logo-title">Logo</div>
+              <div className="company__logo-text">
+                <div className="company__logo-name">{data.companyName}</div>
+                <div className="company__logo-description">
+                  {data.companyDescrip}
                 </div>
               </div>
-              <div className="company__border-mobile-down"></div>
+              {/* Кастомная линия */}
+              <div className="company__border-mobile"></div>
             </div>
-            {/* Кастомная линия */}
-            <div className="main__border-bottom"></div>
-            {/* Социальные сети с переходами по ссылке */}
-            <div className="main__social">
-              <div className="main__social-icons">
+            {/* Более подробное описание компании */}
+            <div className="main__info-more company__info">
+              <div className="main__phone inf">
+                <img src={phone} alt="" />
+                <a href="tel:+70000000000">{data.phone1}</a>
+              </div>
+              <div className="main__email inf">
+                <img src={email} alt="" />
+                <a href="mailto:example@example.com">{data.phone1}</a>
+              </div>
+              <div className="main__website inf">
+                <img src={websait} alt="" />
                 <a
-                  href="https://telegram.org"
+                  href="http://example.com"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <img src={telegram} alt="Telegram" />
-                </a>
-                <a
-                  href="https://whatsapp.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img src={whatsup} alt="WhatsApp" />
-                </a>
-                <a
-                  href="https://viber.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img src={viber} alt="Viber" />
-                </a>
-                <a
-                  href="https://instagram.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img src={instagram} alt="Instagram" />
-                </a>
-                <a
-                  href="https://vk.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img src={vk} alt="VK" />
-                </a>
-                <a
-                  href="https://facebook.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img src={facebook} alt="Facebook" />
-                </a>
-                <a
-                  href="https://youtube.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img src={youtube} alt="YouTube" />
-                </a>
-                <a
-                  href="https://ok.ru"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img src={ok} alt="Odnoklassniki" />
-                </a>
-                <a
-                  href="https://dzen.ru"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img src={dzen} alt="Dzen" />
-                </a>
-                <a
-                  href="https://tiktok.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img src={tiktok} alt="TikTok" />
-                </a>
-                <a
-                  href="https://linkedin.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img src={linkedin} alt="LinkedIn" />
+                  {data.websait}
                 </a>
               </div>
+              <div className="main__address inf">
+                <img src={address} alt="" /> <span>{data.address}</span>
+              </div>
+              <div className="main__BD inf">
+                <img src={bd} alt="" /> <span>{data.companyDB}</span>
+              </div>
+              <div className="main__rank inf">
+                <img src={rank} alt="" />
+                <span>
+                  {data.clients.map((client) => (
+                    <span>{client} </span>//Оставлять пустое место
+                  ))}
+                </span>
+              </div>
+              <div className="main__fax inf">
+                <img src={fax} alt="" /> <span>Факс</span>
+              </div>
+            </div>
+            <div className="company__border-mobile-down"></div>
+          </div>
+          {/* Кастомная линия */}
+          <div className="main__border-bottom"></div>
+          {/* Социальные сети с переходами по ссылке */}
+          <div className="main__social">
+            <div className="main__social-icons">
+              <a
+                href="https://telegram.org"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src={telegram} alt="Telegram" />
+              </a>
+              <a
+                href="https://whatsapp.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src={whatsup} alt="WhatsApp" />
+              </a>
+              <a
+                href="https://viber.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src={viber} alt="Viber" />
+              </a>
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src={instagram} alt="Instagram" />
+              </a>
+              <a
+                href="https://vk.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src={vk} alt="VK" />
+              </a>
+              <a
+                href="https://facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src={facebook} alt="Facebook" />
+              </a>
+              <a
+                href="https://youtube.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src={youtube} alt="YouTube" />
+              </a>
+              <a href="https://ok.ru" target="_blank" rel="noopener noreferrer">
+                <img src={ok} alt="Odnoklassniki" />
+              </a>
+              <a
+                href="https://dzen.ru"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src={dzen} alt="Dzen" />
+              </a>
+              <a
+                href="https://tiktok.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src={tiktok} alt="TikTok" />
+              </a>
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src={linkedin} alt="LinkedIn" />
+              </a>
             </div>
           </div>
-        
+        </div>
       </main>
     </div>
   );
