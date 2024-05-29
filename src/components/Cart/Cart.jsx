@@ -20,7 +20,6 @@ const Cart = () => {
         const responseJson = await response.json();
         setData(responseJson[0]);
         setLoading(false);
-        console.log(responseJson[0]);
       } catch (error) {
         console.error(
           "There has been a problem with your fetch operation:",
@@ -150,7 +149,7 @@ const Cart = () => {
                   <div className="main__header">
                     <div className="main__FIO">
                       <span>
-                        {data.surname} <br /> {data.fullName} 
+                        {data.surname} <br /> {data.fullName}
                       </span>
                     </div>
                     <div className="main__post">
@@ -335,7 +334,7 @@ const Cart = () => {
                 <img src={rank} alt="" />
                 <span>
                   {data.clients.map((client, index) => (
-                    <span key={index}>{client} </span>//Оставлять пустое место
+                    <span key={index}>{client} </span> //Оставлять пустое место
                   ))}
                 </span>
               </div>
