@@ -71,7 +71,7 @@ const Cart = () => {
         console.log("Error copying contact to clipboard: " + error)
       );
 
-    setCopiedData("СКОПИРОВАНО");
+    setCopiedData("ДОБАВЛЕНО");
   };
 
   // Проверка кнопки добавить в контакты

@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: "./src/index.js",
+  
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "bundle.js",
@@ -17,7 +18,11 @@ module.exports = {
         },
       },
       {
-        test: /\.(less|css)$/,
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
+      },
+      {
+        test: /\.less$/i,
         use: ["style-loader", "css-loader", "less-loader"],
       },
       {
@@ -44,7 +49,7 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              name: '[name].[ext]',
+              name: 'fonts/[name].[ext]',
               outputPath: 'fonts/', 
             },
           },
@@ -59,7 +64,7 @@ module.exports = {
   ],
   devServer: {
     hot: true,
-    static: { directory: path.join(__dirname, "dist") },
+    static: { directory: path.join(__dirname, "public") },
     compress: true,
     port: 2228,
   },
