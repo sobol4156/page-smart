@@ -8,6 +8,7 @@ const Cart = () => {
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(true);
 
+  // Запрос к данным
   useEffect(() => {
     async function fetchData() {
       const url = "https://665673099f970b3b36c56d1d.mockapi.io/company";
@@ -333,8 +334,8 @@ const Cart = () => {
               <div className="main__rank inf">
                 <img src={rank} alt="" />
                 <span>
-                  {data.clients.map((client) => (
-                    <span>{client} </span>//Оставлять пустое место
+                  {data.clients.map((client, index) => (
+                    <span key={index}>{client} </span>//Оставлять пустое место
                   ))}
                 </span>
               </div>
